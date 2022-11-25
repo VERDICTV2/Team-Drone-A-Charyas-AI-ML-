@@ -1,9 +1,9 @@
-
 from PIL import Image
 import os
 import cv2
 import numpy as np
 from detecto import core, utils, visualize
+from detecto.visualize import show_labeled_image
 
 
 # assign directory
@@ -49,18 +49,17 @@ labels, boxes, scores = predictions
 print(boxes)
 show_labeled_image(image, boxes, labels)
        
-thresh=0.55
+thresh=0.35
 filtered_indices=np.where(scores>thresh)
 filtered_scores=scores[filtered_indices]
 filtered_boxes=boxes[filtered_indices]
 x = filtered_boxes.tolist()
-count = 0
 while(len(x)!=0):
   print(x)
   print(x[0])
   num_list = filtered_indices[0].tolist()
   filtered_labels = [labels[i] for i in num_list]
-  show_labeled_image(image, filtered_boxes, filtered_labels)
+  #show_labeled_image(image, filtered_boxes, filtered_labels)
   break
 
 # Given information
@@ -78,5 +77,5 @@ print(x_cp,",",y_cp)
 cropped_img = img.crop(area)
 #img.show(cropped_img)
 cropped_img.save("C:\\Users\\spoor\\Desktop\\out\\cropped_image.jpg")
-im=image.open("C:\\Users\\spoor\\Desktop\\out\\cropped_image.jpg")
+im=Image.open("C:\\Users\\spoor\\Desktop\\out\\cropped_image.jpg")
 im.show()
