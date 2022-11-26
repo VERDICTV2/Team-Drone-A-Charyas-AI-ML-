@@ -1,4 +1,4 @@
-# Autonomous UAV applications using AI/ML for search and rescue operations
+# Autonomous UAV applications using Deep learning algorithms for search and rescue operations
 # Team Drone-a-Charyas 
 
 
@@ -19,12 +19,23 @@ follow instructions from `https://github.com/mavlink-router/mavlink-router`
 
 __to install MAVSDK-PYTHON library for drone control and AI integration with drone navigation with autonomy__
 
+
 `pip3 install mavsdk`
 
 
 
+__Mask_RCNN Model that is integrated with MAVSDK that shakes hand with drone navigation and generates interrupts based on objects detected on the ground and navigates the drone accordingly__
 
-__To deploy AI deep learning model on raspberry-pi 3b+__
+
+
+
+
+
+
+
+
+
+__deployment of our AI deep learning model on raspberry-pi 3b+__
 
 ***Run these commands for dependencies on cli for debian***
 
@@ -32,11 +43,14 @@ __To deploy AI deep learning model on raspberry-pi 3b+__
 `pip install tensorflow`
 
 
-
 *make sure camera is connected by issuing*`lsusb` *simultanesoly,*
 *connect all peripherals required*
+*makes use of tensorflowlite for raspberry-pi as it is a edge device and cannot handle the usual tensorflow used on  generic PC's
 
 use this to issue execution `python TFLite_detection_webcam.py --modeldir=TFLite_model`
+
+
+
 
 
 
