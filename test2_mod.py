@@ -4,71 +4,45 @@ import cv2
 import numpy as np
 from detecto import core, utils, visualize
 from detecto.visualize import show_labeled_image
+from torchvision import transforms
+import torchvision   
+import torch                                
 
 
-# assign directory
-
-# iterate over files i
-        # checking if it is a file
-        #if os.path.isfile(f):
-
-
-
-'''ilo =0 
-for filename in os.listdir("C:\\Users\\spoor\\Desktop"):
-
-            f=os.path.join("C:\\Users\\spoor\\Desktop\\totest",filename)
-            image = utils.read_image(f)
-            predictions =  core.Model.load('model_weights.pth', ['human']).predict(image)
-                #print(predictions)
-            labels, boxes, scores = predictions
-                #print(boxes)
-                #show_labeled_image(image, boxes, labels)
-            thresh=0.3
-            filtered_indices=np.where(scores>thresh)
-            filtered_scores=scores[filtered_indices]  
-            filtered_boxes=boxes[filtered_indices]
-            x = filtered_boxes.tolist()
-            print(x)
-            num_list = filtered_indices[0].tolist()
-            filtered_labels = [labels[ilo] for ilo in num_list]
-                #show_labeled_image(image, filtered_boxes, filtered_labels)
-            img = Image.open(f)
-                # print(x[0][0])
-            area = (x[0][0], x[0][1], x[0][2], x[0][3])
-            cropped_img = img.crop(area)
-            cropped_img 
-            cropped_img.save("D:\\Edhitha 2023\\new_seg\\results\\result_img{}.jpg".format(ilo))
-            ilo = ilo +1 '''
-
-image = utils.read_image('C:\\Users\\spoor\\Desktop\\cam_1_2_and_helf_mins_00000063.jpg')
+cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+'''i=0'''
 model=core.Model.load("C:\\Users\\spoor\\Desktop\\model_weights.pth",["human"])
-predictions = model.predict(image)
-print(predictions)
-labels, boxes, scores = predictions
-print(boxes)
-show_labeled_image(image, boxes, labels)
-       
-thresh=0.35
-filtered_indices=np.where(scores>thresh)
-filtered_scores=scores[filtered_indices]
-filtered_boxes=boxes[filtered_indices]
-x = filtered_boxes.tolist()
-while(len(x)!=0):
-  print(x)
-  print(x[0])
-  num_list = filtered_indices[0].tolist()
-  filtered_labels = [labels[i] for i in num_list]
-  #show_labeled_image(image, filtered_boxes, filtered_labels)
-  break
+while(True):
+    ret, frame = cap.read()
+    if ret==False:
+        break
+    predictions= model.predict(frame)
+    labels, boxes, scores = predictions
+    thresh=0.26
+    filtered_indices=np.where(scores>thresh)
+    filtered_scores=scores[filtered_indices]  
+    filtered_boxes=boxes[filtered_indices]
+    x = filtered_boxes.tolist()
+    num_list = filtered_indices[0].tolist()
+    filtered_labels = [labels[ilo] for ilo in num_list]
+    #show_labeled_image(frame, filtered_boxes, filtered_labels)
+    box = tuple(x)
+    print(x)
+    #box = torch(box, dtype=torch.int)
+    cv2.rectangle(frame, (int(x[0][0]),int(x[0][1])),(int(x[0][2]), int(x[0][3])), (0,255,0), 2)
+    #img = torchvision.transforms.ToPILImage()(img)
+    #img.numpy()
+    cv2.imshow('Label',frame)
 
-# Given information
-img = Image.open("C:\\Users\\spoor\\Desktop\\cam_1_2_and_helf_mins_00000063.jpg")
-#width, height = 440, 190
+    if cv2.waitKey(1) & 0xFF == ord('a'):
+        break
+    #img = frame
+                # print(x[0][0])
+    
 #x, y = 100, 20
  
 # Select area to crop
-area = (x[0][0], x[0][1], x[0][2], x[0][3])
+'''area = (x[0][0], x[0][1], x[0][2], x[0][3])
 x_cp = (x[0][0] + x[0][2])/2
 y_cp = (x[0][1] + x[0][3])/2
 print(x_cp,",",y_cp)
@@ -76,6 +50,6 @@ print(x_cp,",",y_cp)
 # Crop, show, and save image
 cropped_img = img.crop(area)
 #img.show(cropped_img)
-cropped_img.save("C:\\Users\\spoor\\Desktop\\out\\cropped_image.jpg")
-im=Image.open("C:\\Users\\spoor\\Desktop\\out\\cropped_image.jpg")
-im.show()
+cropped_img.save("/home/satz/cropped_image.jpg")
+im=Image.open("/home/satz/cropped_image.jpg")
+im.show()'''
