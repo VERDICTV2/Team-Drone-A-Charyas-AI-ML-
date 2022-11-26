@@ -1,5 +1,5 @@
-#Tensorflowlite Deployment on raspberry-pi 3b+
-*Run these commands for dependencies on cli for debian
+#Tensorflowlite Deployment on raspberry-pi 3b+#
+*Run these commands for dependencies on cli for debian*
 
 `pip install opencv-contrib-python`
 `pip install tensorflow`
