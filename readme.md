@@ -24,12 +24,17 @@ __to install MAVSDK-PYTHON library for drone control and AI integration with dro
 __Mask_RCNN Model that is integrated with MAVSDK that shakes hand with drone navigation and generates interrupts based on objects detected on the ground and navigates the drone accordingly__
 
 
+*other Dependencies for running Mask_RCNN model in hand with GUI preview*
+
+`pip install PIL`
+`pip install torchvision`
+`pip install detecto`
 
 
+*The mask_RCNN model uses a python executable file for running the model on new data live from the webcam feed, using this data i.e comparing the pixel location of image and pixel location of object we leverage the drone navigation usign mavsdk-python library and forward a UDP port to view, simulate 
+the same in a real world-likeenvoirment*
 
-
-
-
+execute python file by issuing `
 
 
 __deployment of our AI deep learning model on raspberry-pi 3b+__
