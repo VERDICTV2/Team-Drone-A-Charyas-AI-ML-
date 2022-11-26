@@ -9,13 +9,20 @@ __To install Jmavsim and Px4 SITL (Software in the loop)__
 followed instructions to make and build PX4 env on ubuntu from 
 `https://docs.px4.io/main/en/simulation/jmavsim`
 
+
+
 __To install mavlink router for controlling drone and port forwarding frrom either raspberry-pi and localhost 
 
 follow instructions from `https://github.com/mavlink-router/mavlink-router`
 
+
+
 __to install MAVSDK-PYTHON library for drone control and AI integration with drone navigation with autonomy__
 
 `pip3 install mavsdk`
+
+
+
 
 __To deploy AI deep learning model on raspberry-pi 3b+__
 
@@ -23,6 +30,8 @@ __To deploy AI deep learning model on raspberry-pi 3b+__
 
 `pip install opencv-contrib-python`
 `pip install tensorflow`
+
+
 
 *make sure camera is connected by issuing*`lsusb` *simultanesoly,*
 *connect all peripherals required*
