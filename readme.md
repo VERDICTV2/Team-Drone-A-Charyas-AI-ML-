@@ -2,19 +2,16 @@
 # Team Drone-a-Charyas 
 
 
-__To install Jmavsim and Px4 SITL (Software in the loop)__
+__To install Jmavsim simulator and PX4 Firmware SITL (Software in the loop)__
 
 ***Run these commands for dependencies on cli for ubuntu 20.04***
 
-followed instructions to make and build PX4 env on ubuntu from 
-`https://docs.px4.io/main/en/simulation/jmavsim`
 
+issue `make px4_sitl_default jmavsim`  to start SITL in head mode after installing pre-requuisites from `https://docs.px4.io/main/en/dev_setup/dev_env.html`
 
-
-__To install mavlink router for controlling drone and port forwarding frrom either raspberry-pi and localhost 
+__To install mavlink router for controlling drone and port forwarding from either raspberry-pi and localhost to throw its output so mission progressi s viewable on a ground station
 
 follow instructions from `https://github.com/mavlink-router/mavlink-router`
-
 
 
 __to install MAVSDK-PYTHON library for drone control and AI integration with drone navigation with autonomy__
