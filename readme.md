@@ -9,7 +9,7 @@ __To install Jmavsim simulator and PX4 Firmware SITL (Software in the loop)__
 
 issue `make px4_sitl_default jmavsim`  to start SITL in head mode after installing pre-requuisites from `https://docs.px4.io/main/en/dev_setup/dev_env.html`
 
-__To install mavlink router for controlling drone and port forwarding from either raspberry-pi and localhost to throw its output so mission progressi s viewable on a ground station
+__To install mavlink router for controlling drone and port forwarding from either raspberry-pi and localhost to throw its output so mission progressi s viewable on a ground station__
 
 follow instructions from `https://github.com/mavlink-router/mavlink-router`
 
