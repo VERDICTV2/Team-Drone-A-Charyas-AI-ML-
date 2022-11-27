@@ -35,6 +35,7 @@ __Mask_RCNN Model that is integrated with MAVSDK that shakes hand with drone nav
 the same in a real world-likeenvoirment*
 
 execute python file by issuing `
+python3 a_final.py
 
 
 __deployment of our AI deep learning model on raspberry-pi 3b+__
