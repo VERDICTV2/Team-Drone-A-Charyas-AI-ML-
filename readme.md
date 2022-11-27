@@ -34,8 +34,9 @@ __Mask_RCNN Model that is integrated with MAVSDK that shakes hand with drone nav
 *The mask_RCNN model uses a python executable file for running the model on new data live from the webcam feed, using this data i.e comparing the pixel location of image and pixel location of object we leverage the drone navigation usign mavsdk-python library and forward a UDP port to view, simulate 
 the same in a real world-likeenvoirment*
 
-execute python file by issuing `
-python3 a_final.py
+execute python file by issuing 
+*This python file contains drone and computer vision based control we have been mentioning about so far !*
+`python3 a_final.py`
 
 
 __deployment of our AI deep learning model on raspberry-pi 3b+__
